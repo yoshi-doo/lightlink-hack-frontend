@@ -124,6 +124,7 @@
 
 @media (max-width: 768px) {
   .header {
+    display: flex;
     margin-left: 0;
   }
   .grid {
