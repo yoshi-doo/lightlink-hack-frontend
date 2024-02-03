@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function MyTicketsGrid() {
   const address = useAddress();
-  if (!address) return;
+  if (!address) return <></>;
   const [tokenLoading, setTokenLoading] = React.useState(false);
   const [tokenDetails, setTokenDetails] = React.useState<TokenDetail[] | null>(
     null

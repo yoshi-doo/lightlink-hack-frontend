@@ -188,13 +188,14 @@ export default function EventCard({ address }: { address: string }) {
                               args: [address, 1],
                               overrides: { value: eventDetails.price },
                             });
-                            console.log("res", res);
                             setMessage("Purchase successful");
                             setTimeout(() => {
                               handleClose();
                             }, 2000);
                           } catch (error) {
-                            console.log(error.reason);
+                            // @ts-ignore
+                            console.error(error?.reason as s);
+                            // @ts-ignore
                             setMessage(error.reason);
                             setTimeout(() => {
                               handleClose();

@@ -66,7 +66,7 @@ export default function MyTicketCard({
     [tokenId]
   ) as { data: string; isLoading: boolean };
 
-  if (!tokenMetaData) return;
+  if (!tokenMetaData) return <></>;
 
   const match = tokenMetaData.match(/\{.*\}/);
   const metadata = (match ? JSON.parse(match[0]) : {}) as MetaData;

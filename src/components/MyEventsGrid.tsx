@@ -70,7 +70,7 @@ export default function MyEventGrid() {
   const { errors } = formState;
 
   const address = useAddress();
-  if (!address) return;
+
   const abi = EventFactory__factory.abi;
   const { contract } = useContract(
     import.meta.env.VITE_CONTRACT_ADDRESSES,
@@ -114,20 +114,19 @@ export default function MyEventGrid() {
       ethers.utils.parseEther(formValues.price),
       formValues.max_tickets_per_user,
     ];
-    console.log("listingFee", listingFee);
     try {
-      console.log(args);
       const res = await create({
         args: args,
         overrides: { value: listingFee },
       });
       setMessage("Event creation successful");
       setTimeout(() => {
-        console.log("Success!");
         handleClose();
       }, 2000);
     } catch (error) {
-      console.log(error.reason);
+      // @ts-ignore
+      console.error(error.reason);
+      // @ts-ignore
       setMessage(error.reason);
       setTimeout(() => {
         console.log("Failure!");
