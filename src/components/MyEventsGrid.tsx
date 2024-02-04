@@ -142,7 +142,7 @@ export default function MyEventGrid() {
       </StyledButton>
       <Grid container spacing={2} paddingTop="15px">
         {isLoading ? (
-          <p>Events Loading...</p>
+          <p></p>
         ) : (
           createdEvents.map((event: string) => (
             <Grid item key={event}>
